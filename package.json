@@ -1,0 +1,45 @@
+{
+  "name": "pautaonline",
+  "version": "1.0.0",
+  "description": "Aplicação web para gerenciamento de pautas online.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "keywords": [
+    "pauta",
+    "gerenciamento",
+    "web"
+  ],
+  "author": "Ihury Ferreira de França",
+  "contributors": [
+    "Ihury Ferreira de França"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "multer": "^1.4.5-lts.1",
+    "pg": "^8.12.0",
+    "socket.io": "^4.7.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  },
+  "homepage": "https://github.com/ihuryferreira/pautaonline",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ihuryferreira/pautaonline.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ihuryferreira/pautaonline/issues"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
