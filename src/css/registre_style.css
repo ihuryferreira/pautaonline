@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    min-height: 100vh;
+    text-align: center;
+}
+
+table {
+    margin: 100px auto;
+    border-spacing: 2px;
+    border-collapse: collapse;
+    border: 1px solid gray;
+}
+
+tr {
+    border: 1px solid gray;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid gray;
+}
+
+input {
+    margin: 10px auto;
+}
+
+body > p {
+    margin: 10px auto;
+}

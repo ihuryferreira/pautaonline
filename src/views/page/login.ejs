@@ -1,0 +1,29 @@
+<main class="container">
+    <div class="box">
+      <div class="logo">
+        <img src="/images/logo.png" alt="Solid Técnologia" class="img" />
+        <p class="paragraph">SolidTecnlogia ~ Pauta do dia Online</p>
+      </div>
+      <form action="/logar" method="post" id="login-form">
+        <fieldset>
+          <legend>Login</legend>
+          <input type="text" name="usuario" placeholder="ID do Usuário" />
+          <input
+            type="password"
+            name="senha"
+            placeholder="Senha do Usuário"
+          />
+          <input type="submit" value="Entrar" disabled />
+        </fieldset>
+      </form>
+      <div class="cadastro" style="display: none">
+        <p>Não tem conta?</p>
+        <a href="http://localhost:3000/register">Clique aqui!</a>
+      </div>
+    </div>
+    <footer class="rodape">
+      <p>2024 &copy; Todos os direitos reservados <a href="https://www.solidtecnologia.com.br/">solidtecnologia</a> </p>
+    </footer>
+  </main>
+
+  <script src="/js/login.js"></script>

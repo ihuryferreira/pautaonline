@@ -1,0 +1,273 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+    background-color: #e3e3e3;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #000;
+    padding: 1em;
+    flex-wrap: wrap;
+  }
+  
+  .menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30px;
+    height: 26px;
+    background-color: #FFF;
+    color: #FFF;
+    cursor: pointer;
+    border-radius: 2px;
+  }
+  
+  .menu span {
+    position: relative;
+  }
+  
+  .menu span::after {
+    display: block;
+    content: "";
+    margin-top: .3em;
+    width: 20px;
+    height: 2px;
+    background-color: #000;
+  }
+  
+  .col-filter {
+    display: flex;
+    align-items: center;
+    gap: .8em;
+    color: #FFF;
+  }
+  
+  #name > span {
+    text-transform: uppercase;
+  }
+  
+  #logout {
+    padding: .5em 1.2em;
+    background-color: #e6120bf1;
+    color: #FFF;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+  
+  .pauta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  
+  .box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    background-color: #FFF;
+    border-radius: 14px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+  }
+  
+  .pauta-title {
+    font-size: 24pt;
+    font-weight: 600;
+    text-align: center;
+  }
+  
+  .box-table {
+    width: 100%;
+    overflow-x: auto;
+    padding: 1em;
+  }
+  
+  .box-table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .box-table caption {
+    caption-side: top;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: underline;
+    text-align: center;
+  }
+  
+  .box-table thead {
+    background-color: rgb(228, 240, 245);
+  }
+  
+  .box-table th,
+  .box-table td {
+    border: 1px solid rgb(160, 160, 160);
+    padding: 8px 10px;
+    font-size: 14px;
+    text-align: left;
+  }
+
+  .box-table td a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: .5rem;
+  }
+  
+  .box-table td {
+    max-width: 200px;
+    letter-spacing: 1.8px;
+    line-height: 20px;
+  }
+  
+  .box-table tbody > tr:nth-of-type(even) {
+    background-color: rgb(237, 238, 242);
+  }
+  
+  /* Media Queries para Responsividade */
+  
+  @media (max-width: 1024px) {
+    .header {
+      padding: 1em;
+    }
+  
+    .pauta-title {
+      font-size: 22pt;
+    }
+  
+    .box-table th,
+    .box-table td {
+      font-size: 13px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    /* .header {
+      flex-direction: column;
+      align-items: flex-start;
+    } */
+  
+    /* .col-filter {
+      flex-direction: column;
+      align-items: flex-start;
+    } */
+  
+    .header {
+      align-items: center;
+    }
+  
+    #logout {
+      margin-top: .5em;
+    }
+  
+    .pauta-title {
+      font-size: 20pt;
+    }
+  
+    .box-table th,
+    .box-table td {
+      font-size: 12px;
+    }
+  
+    .box-table {
+      padding: 0.5em;
+    }
+  }
+  
+  @media (max-width: 425px) {
+    .pauta-title {
+      font-size: 18pt;
+      text-align: center;
+    }
+  
+    .box-table th {
+      text-align: center;
+      font-size: 14px;
+    }
+  
+    .box-table .text,
+    .box-table td {
+      text-align: center;
+      font-size: 13px;
+      line-height: 1.6em;
+    }
+  
+    .menu {
+      width: 28px;
+      height: 22px;
+    }
+  
+    .menu span::after {
+      width: 16px;
+      height: 1px;
+    }
+    .box {
+      width: 95%;
+    }
+  }
+  
+  @media (max-width: 375px) {
+    .pauta-title {
+      font-size: 16pt;
+    }
+  
+    .box-table th,
+    .box-table td {
+      font-size: 10px;
+    }
+  
+    .menu {
+      width: 24px;
+      height: 20px;
+    }
+  
+    .menu span::after {
+      width: 14px;
+      height: 1px;
+    }
+  }
+  
+  @media (max-width: 320px) {
+    .pauta-title {
+      font-size: 14pt;
+    }
+  
+    .box-table th,
+    .box-table td {
+      font-size: 9px;
+    }
+  
+    .menu {
+      width: 20px;
+      height: 22px;
+    }
+  
+    .menu span::after {
+      width: 12px;
+      height: 1px;
+    }
+  }
+  

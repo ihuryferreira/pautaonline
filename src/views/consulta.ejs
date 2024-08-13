@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title><%= title %></title>
+        <link rel="stylesheet" href="/css/consulta.css">
+        <script defer
+            src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+        <link rel="shortcut icon"
+            href="https://www.solidtecnologia.com.br/wp-content/uploads/2022/12/cropped-Favicon-Solid-32x32.png"
+            type="image/x-icon">
+    </head>
+    <body>
+        <%
+        function formatDate(date) {
+        let day = date.getDate();
+        let month = date.getMonth() + 1;
+        let year = date.getFullYear();
+
+        if (day < 10) {
+        day = '0' + day;
+        }
+        if (month < 10) {
+        month = '0' + month;
+        }
+
+        return `${day}/${month}/${year}`;
+        }
+        %>
+        <div class="container">
+            <div class="header">
+                <div class="menu">
+                    <a href="javascript:void(0)"
+                        onclick="window.location.assign('/inicial')">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </a>
+                </div>
+                <div class="col-filter">
+                    <% if (loggedInUser) { %>
+                    <p id="name">Bem-vindo, <span><%= loggedInUser %></span></p>
+                    <% } %>
+                    <a href="/logout" id="logout">Logout</a>
+                </div>
+            </div>
+
+            <section class="pauta">
+                <div class="box">
+                    <p class="pauta-title">🔘 Pauta Edit</p>
+
+                    <div class="box-table">
+                        <!-- Tabela de Chamados Concluídos -->
+                        <table class="concluido" id="concluidosTable">
+                            <caption>
+                                <p>Chamados Concluídos</p>
+                            </caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Chamado</th>
+                                    <th scope="col">Comentário</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Data</th>
+                                    <th scope="col">Editar</th>
+                                    <th scope="col">Deletar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% pautaActive.filter(data => data.status ===
+                                '✅ Concluído').forEach(data => { %>
+                                <tr>
+                                    <th scope="row"><%= data.id %></th>
+                                    <th scope="row"><%= data.chamado %></th>
+                                    <td class="text"><%= data.comentario %></td>
+                                    <td><%= data.status %></td>
+                                    <td><%= formatDate(new Date(data.data))
+                                        %></td>
+                                    <td>
+                                        <a href="/editar/<%= data.id %>"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+                                    </td>
+                                    <td>
+                                        <a href="#" onclick="deletarItemActive('<%= data.id %>'); return false;">
+                                            <i class="fas fa-trash-alt"></i>
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                <% }); %>
+                            </tbody>
+                        </table>
+
+                        <!-- Tabela de Chamados Pendentes -->
+                        <table class="pendentes" id="pendentesTable">
+                            <caption>
+                                <p>Chamados Pendentes</p>
+                            </caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Chamado</th>
+                                    <th scope="col">Comentário</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Data</th>
+                                    <th scope="col">Editar</th>
+                                    <th scope="col">Deletar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% pautaPausada.filter(data => data.status === '❗ Pendente').forEach(data => { %>
+                                    <tr>
+                                        <th scope="row"><%= data.id %></th>
+                                        <th scope="row"><%= data.chamado %></th>
+                                        <td class="text"><%= data.comentario %></td>
+                                        <td><%= data.status %></td>
+                                        <td><%= formatDate(new Date(data.data)) %></td>
+                                        <td>
+                                            <a href="/edit/<%= data.id %>"><i class="fas fa-edit"></i> Editar</a>
+                                        </td>
+                                        <td>
+                                            <a href="#" onclick="deletarItem('<%= data.id %>'); return false;">
+                                                <i class="fas fa-trash-alt"></i>
+                                                Excluir
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <% }); %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <footer
+                style="font-size: 1.2em; padding: 1em; color: #040125; font-family: Arial, Helvetica, sans-serif; font-weight: 700;">
+                <p style="text-align: center;">Sistema Criado Por Ihury
+                    Ferreira</p>
+            </footer>
+        </div>
+        <script>
+            function deletarItem(id) {
+                console.log(`Tentando excluir o item com ID: ${id}`); // Log para verificar se a função é chamada
+                if (confirm('Tem certeza que deseja excluir?')) {
+                    fetch(`/delete/${id}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                    .then(response => {
+                        console.log('Status da resposta:', response.status); // Adiciona log do status
+                        return response.text().then(text => ({ status: response.status, text }));
+                    })
+                    .then(({ status, text }) => {
+                        console.log('Corpo da resposta:', text); // Adiciona log do corpo
+                        if (status >= 200 && status < 300) {
+                            window.location.reload(); // Atualiza a página após a exclusão
+                        } else {
+                            alert('Erro ao excluir o item: ' + text);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Erro ao excluir o item:', error);
+                        alert('Erro ao excluir o item.');
+                    });
+                }
+            }
+            function deletarItemActive(id) {
+                console.log(`Tentando excluir o item com ID: ${id}`); // Log para verificar se a função é chamada
+                if (confirm('Tem certeza que deseja excluir?')) {
+                    fetch(`/deletar/${id}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                    .then(response => {
+                        console.log('Status da resposta:', response.status); // Adiciona log do status
+                        return response.text().then(text => ({ status: response.status, text }));
+                    })
+                    .then(({ status, text }) => {
+                        console.log('Corpo da resposta:', text); // Adiciona log do corpo
+                        if (status >= 200 && status < 300) {
+                            window.location.reload(); // Atualiza a página após a exclusão
+                        } else {
+                            alert('Erro ao excluir o item: ' + text);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Erro ao excluir o item:', error);
+                        alert('Erro ao excluir o item.');
+                    });
+                }
+            }
+        </script>
+    </body>
+</html>

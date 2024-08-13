@@ -1,0 +1,86 @@
+<main class="container">
+  <header class="header">
+    <div class="menu">
+      <a
+        href="javascript:void(0)"
+        onclick="window.location.assign('/pauta')">
+        <span></span>
+        <span></span>
+        <span></span>
+      </a>
+    </div>
+    <div class="col-filter">
+      <% if (loggedInUser) { %>
+      <p id="name">Bem-vindo, <span><%= loggedInUser %></span></p>
+      <% } %>
+      <a href="/logout" id="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+  </header>
+
+  <div class="box-button">
+    <button class="btn-finalizado">Formulário da Pauta Finalizada</button>
+    <button class="btn-pausado">Formulário da Pauta Pausados</button>
+    <button class="btn-Edit">Modificar Pauta</button>
+  </div>
+
+  <div class="box">
+    <section class="project">
+      <div class="box-project">
+        <img src="./../images/logo.png" alt />
+        <p class="title"></p>
+
+        <form action="/active" method="POST" id="formActive">
+          <label for="numeroChamado">Chamado:</label>
+          <input type="text" id="numeroChamado" name="numeroChamado" />
+          <label for="Comentario">Comentário:</label>
+          <textarea name="comentario" id="comentario"></textarea>
+          <p>--- Status ---</p>
+          <div class="pauta-chekout">
+            <fieldset>
+              <input
+                type="radio"
+                id="ativo"
+                name="status"
+                value="✅ Concluído"
+                checked />
+              <label for="ativo"><span>✅</span>Concluído</label>
+              <input
+                type="radio"
+                id="pendentes"
+                name="status"
+                value="❗ Pendente" />
+              <label for="pendentes"><span>❗</span>Pendente</label>
+            </fieldset>
+          </div>
+          <input type="submit" value="Gravar Finalizados" class="btn" />
+        </form>
+        <form action="/pausado" method="POST" id="formPausado" class="off">
+          <label for="numeroChamado">Chamado:</label>
+          <input type="text" id="numeroChamado" name="numeroChamado" />
+          <label for="Comentario">Comentário:</label>
+          <textarea name="comentario" id="comentario"></textarea>
+          <p>--- Status ---</p>
+          <div class="pauta-chekout">
+            <fieldset>
+              <input
+                type="radio"
+                id="ativo"
+                name="status"
+                value="✅ Concluído" />
+              <label for="ativo"><span>✅</span>Concluído</label>
+              <input
+                type="radio"
+                id="pendentes"
+                name="status"
+                value="❗ Pendente"
+                checked />
+              <label for="pendentes"><span>❗</span>Pendente</label>
+            </fieldset>
+          </div>
+          <input type="submit" value="Gravar Pausados" class="btn" />
+        </form>
+      </div>
+    </section>
+  </div>
+</main>
+<script src="/js/inicial.js"></script>

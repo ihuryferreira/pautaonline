@@ -1,0 +1,341 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  width: 100%;
+  background-color: #e3e3e3;
+}
+
+fieldset {
+  border: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+  background-color: #e3e3e3;
+}
+
+.header {
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  background-color: #000;
+  padding: 1em;
+  flex-wrap: wrap;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30px;
+  height: 26px;
+  background-color: #FFF;
+  color: #FFF;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.menu span {
+  position: relative;
+}
+
+.menu span::after {
+  display: block;
+  content: "";
+  margin-top: .3em;
+  width: 20px;
+  height: 2px;
+  background-color: #000;
+}
+
+.col-filter {
+  display: flex;
+  align-items: center;
+  gap: .8em;
+}
+
+.col-filter #name>span {
+  text-transform: uppercase;
+}
+
+.col-filter #logout {
+  padding: .5em 1.2em;
+  background-color: #e6120bf1;
+  color: #FFF;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.box-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 16vh;
+  gap: 1em;
+  margin: 1em 0;
+}
+
+.box-button button {
+  width: 120px;
+  height: 120px;
+  font-size: 18px;
+  line-height: 28px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.box-button button:hover {
+  background-color: #0056b3;
+}
+
+.box {
+  display: block;
+  width: 90%;
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+.project {
+  width: 100%;
+  background-color: #FFFFFF;
+  border: 1px solid #0f0346;
+  margin: 2% auto;
+  box-shadow: 3px 2px 3px #472300;
+  border-radius: 8px;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 1.4em;
+}
+
+.project img {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.project .title {
+  margin-top: 1em;
+  text-align: center;
+  font-size: 1.4em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 1em;
+}
+
+.project form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  gap: 1em;
+}
+
+.project form input,
+.project form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 0.5em;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.project form textarea {
+  height: 100px;
+}
+
+.project form .pauta-chekout fieldset {
+  display: flex;
+  flex-direction: row;
+  padding: 1.1em;
+  gap: 1em;
+}
+
+.project form .pauta-chekout fieldset label {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.project form .pauta-chekout fieldset span {
+  margin-right: 0.5rem;
+}
+
+.project form .btn {
+  padding: .7em 3em;
+  font-size: 17px;
+  background-color: #5ab411;
+  color: #ece2e2;
+  border: 1px solid transparent;
+  box-shadow: 3px 3px 5px #000;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project form .btn:hover {
+  background-color: #306605e0;
+  color: #FFFFFF;
+  box-shadow: 0px 0px 13px 4px #5ab411;
+  border-color: #f1eeee;
+}
+
+.project form.off {
+  display: none;
+}
+
+.project form.active {
+  display: flex;
+}
+
+/* Consultas de Mídia para dispositivos móveis */
+@media (max-width: 1440px) {
+  .header {
+    padding: 1.1em 1.5em;
+  }
+
+  .box {
+    max-width: 550px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .header {
+    justify-content: space-between;
+  }
+
+  .menu {
+    margin-bottom: 0em;
+  }
+
+  .col-filter {
+    margin-top: 0em;
+  }
+
+  .box-button {
+    flex-direction: row;
+    gap: 1em;
+  }
+
+  .box-button button {
+    width: 100px;
+    height: 100px;
+    font-size: 16px;
+  }
+
+  .box {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 1em;
+  }
+
+  .box-button {
+    flex-direction: row;
+    gap: 1em;
+  }
+
+  .box-button button {
+    width: 100px;
+    height: 100px;
+    font-size: 14px;
+  }
+
+  .box {
+    width: 95%;
+  }
+
+  .project {
+    margin: 1% auto;
+    padding: 1em;
+  }
+
+  .project .title {
+    font-size: 1.2em;
+  }
+
+  .project form {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  /* .header {
+        padding: 1em;
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+    } */
+
+  .header {
+    justify-content: space-between;
+    padding: 12px;
+  }
+
+  .col-filter>p,
+  .col-filter>a {
+    font-size: 13px;
+  }
+
+  .box-button {
+    flex-direction: column;
+    gap: 0.5em;
+  }
+
+  .box-button button {
+    width: 100%;
+    height: auto;
+    font-size: 14px;
+  }
+
+  .project {
+    margin: 1% auto;
+    padding: 1em;
+  }
+
+  .project .title {
+    font-size: 1.1em;
+  }
+
+  .project form {
+    width: 100%;
+  }
+
+  .project form textarea {
+    height: 80px;
+  }
+}
+
+@media (max-width: 320px) {
+  .header {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .project form textarea {
+    height: 60px;
+  }
+
+  .project form .pauta-chekout fieldset label {
+    font-size: 15px;
+  }
+}
