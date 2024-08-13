@@ -1,32 +1,43 @@
-# Descrição do Sistema de Pauta do Dia
-O Sistema de Pauta do Dia é uma aplicação web desenvolvida com Node.js que facilita o gerenciamento de chamados e relatórios diários.
-A aplicação permite a criação, edição e exclusão de registros de chamados, com informações detalhadas sobre as atividades realizadas e o status de conclusão de cada chamado.
+# Sistema de Pauta do Dia
 
-# Funcionalidades Principais:
-  * Registro de Chamados: Adicione novos chamados com um número identificador único, uma mensagem descritiva sobre o que foi realizado e o estado atual do chamado.
-  * Gerenciamento de Dados: Visualize e gerencie os chamados em uma tabela interativa. É possível editar ou excluir registros conforme necessário.
-  * Armazenamento e Compartilhamento: Os chamados são armazenados em uma tabela persistente, e uma captura de tela dessa tabela pode ser enviada diretamente via WhatsApp para comunicação com a equipe.
-  * Tecnologias Utilizadas:
-  * Backend: Node.js com Express para gerenciamento de rotas e middleware.
-  * Banco de Dados: PostgreSQL para armazenamento de dados.
-  * Frontend: EJS para renderização de páginas dinâmicas.
-  * Sessões e Uploads: express-session para gerenciamento de sessões e multer para manipulação de uploads de arquivos.
-  * Comunicação em Tempo Real: Socket.io para atualizações em tempo real (se aplicável).
+O Sistema de Pauta do Dia é uma aplicação web desenvolvida com Node.js que facilita o gerenciamento de chamados e relatórios diários. A aplicação permite a criação, edição e exclusão de registros de chamados, oferecendo uma interface amigável e funcionalidades robustas para o seu fluxo de trabalho diário.
 
-# Dependências:
-body-parser: Middleware para parsing de requisições HTTP.
-cors: Suporte a Cross-Origin Resource Sharing.
-dotenv: Carregamento de variáveis de ambiente.
-express: Framework web para Node.js.
-express-session: Gerenciamento de sessões de usuário.
-multer: Manipulação de uploads de arquivos.
-pg: Cliente PostgreSQL para Node.js.
-socket.io: Comunicação em tempo real.
+## Funcionalidades Principais
 
-# DevDependencies:
-nodemon: Ferramenta para reinicialização automática do servidor durante o desenvolvimento.
+- **Registro de Chamados**: Adicione novos chamados com um número identificador único, uma mensagem descritiva sobre o que foi realizado e o estado atual do chamado.
+- **Gerenciamento de Dados**: Visualize e gerencie os chamados em uma tabela interativa, com a capacidade de editar ou excluir registros conforme necessário.
+- **Armazenamento e Compartilhamento**: Os chamados são armazenados em uma tabela persistente, e uma captura de tela dessa tabela pode ser enviada diretamente via WhatsApp para comunicação com a equipe.
 
-O Sistema de Pauta do Dia é uma solução eficiente para o gerenciamento de chamados diários, proporcionando uma interface amigável e funcionalidades robustas para facilitar o seu fluxo de trabalho.
+## Tecnologias Utilizadas
+
+- **Backend**: Node.js com Express para gerenciamento de rotas e middleware.
+- **Banco de Dados**: PostgreSQL para armazenamento de dados.
+- **Frontend**: EJS para renderização de páginas dinâmicas.
+- **Sessões e Uploads**: `express-session` para gerenciamento de sessões e `multer` para manipulação de uploads de arquivos.
+- **Comunicação em Tempo Real**: `socket.io` para atualizações em tempo real (se aplicável).
+
+## Dependências
+
+- **body-parser**: Middleware para parsing de requisições HTTP.
+- **cors**: Suporte a Cross-Origin Resource Sharing.
+- **dotenv**: Carregamento de variáveis de ambiente.
+- **express**: Framework web para Node.js.
+- **express-session**: Gerenciamento de sessões de usuário.
+- **multer**: Manipulação de uploads de arquivos.
+- **pg**: Cliente PostgreSQL para Node.js.
+- **socket.io**: Comunicação em tempo real.
+
+## DevDependencies
+
+- **nodemon**: Ferramenta para reinicialização automática do servidor durante o desenvolvimento.
+
+## Instruções de Uso
+
+### Instalação
+
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/ihuryferreira/pautaonline.git
 
 # Página de Login
 ![image](https://github.com/user-attachments/assets/1929a8a6-f932-4543-a662-4e5739688564)
